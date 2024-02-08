@@ -11,17 +11,28 @@ const snareDrumBox = document.querySelector('#snare-drum')
 const hiHatBox = document.querySelector('#hi-hat')
 const tickTockBox = document.querySelector('#tickTock')
 
+const kickTiming = document.querySelector('#kickTime')
+const snareDrumTiming = document.querySelector('#snareTime')
+const hitHatTiming = document.querySelector('#hiHatTime')
+
 // This function is called every 600ms
 function update() {
 if(count % 4 === 0){
 tock.play()
-}else{
-    // Play the 'tick' sound
-    tick.play()
-}
-count ++
+}  else {
+tick.play()
+}if(kickDrumBox.checked){
+    Number(kickTiming.value) === currentCount
+kickDrum.play()
+} if(snareDrumBox.checked === Number(snareDrumTiming) && currentCount){
+snareDrum.play()
+} if(hiHatBox.checked === Number(hitHatTiming) && currentCount){
+hiHat.play()
+} 
+
 let currentCount = document.querySelector('#mCount')
 currentCount.innerText = `${count % 4}`
+count ++
 }
 
 // This function sets up update() to be called every 600ms
